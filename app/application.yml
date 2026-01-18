@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: hackathon-simulator
+  datasource:
+    url: jdbc:sqlite:simulator.db?journal_mode=WAL&busy_timeout=30000
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 1
+      connection-timeout: 60000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+hackathon:
+  registration:
+    enabled: true  # Set to false to disable new registrations
+    teams:
+      team_alpha: "secret123"
+      team_beta: "password456"
+      # Add more teams: team_name: "password"
+  jwt:
+    secret: this-is-a-very-long-secret-key-that-is-at-least-sixty-four-bytes-long-for-security-purposes-1234567890
+
+    expiration-minutes: 30
+  rate-limit:
+    runs-per-hour: 100
+  simulator:
+    step-interval-ms: 100
+    total-steps: 9000
+
+logging:
+  level:
+    root: INFO
+    ca.mc.exchange_simulator: DEBUG

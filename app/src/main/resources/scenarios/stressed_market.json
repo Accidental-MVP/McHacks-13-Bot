@@ -1,0 +1,52 @@
+{
+    "id": "stressed_market",
+    "name": "Stressed Market Conditions",
+    "description": "Market under stress with declining fundamentals and reduced liquidity",
+    "seed": 12348,
+    "durationSteps": 36000,
+    "stepIntervalMs": 100,
+    "marketConfig": {
+        "initialFundamentalValue": 1000.0,
+        "tickSize": 0.25,
+        "fundamentalDrift": -0.0001,
+        "fundamentalVolatility": 0.002
+    },
+    "traders": {
+        "fundamental": {
+            "count": 20,
+            "kappa1": 0.1390,
+            "kappa2": 0.4562,
+            "interval": 150
+        },
+        "momentumLongTerm": {
+            "count": 25,
+            "decayRate": 0.001,
+            "chi": 0.3017,
+            "psi": 0.09051,
+            "cancelRate": 0.25
+        },
+        "momentumShortTerm": {
+            "count": 25,
+            "decayRate": 0.9,
+            "chi": 0.1273,
+            "psi": 0.03819,
+            "cancelRate": 0.25
+        },
+        "noise": {
+            "count": 20,
+            "eta": 0.25,
+            "kappa": 0.005,
+            "cancelRate": 0.25
+        },
+        "marketMaker": {
+            "count": 3,
+            "gamma": 1.5,
+            "delta": 0.7,
+            "maxEdge": 6.0,
+            "inventoryLimit": 5000,
+            "safeInventory": 500,
+            "restPeriod": 18000
+        }
+    },
+    "specialEvents": []
+}

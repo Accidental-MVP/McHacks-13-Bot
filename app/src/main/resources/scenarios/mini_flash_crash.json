@@ -1,0 +1,58 @@
+{
+    "id": "mini_flash_crash",
+    "name": "Mini Flash Crash Scenario",
+    "description": "Frequent small-scale flash crashes triggered by Spiking Traders",
+    "seed": 12347,
+    "durationSteps": 36000,
+    "stepIntervalMs": 100,
+    "marketConfig": {
+        "initialFundamentalValue": 1000.0,
+        "tickSize": 0.25,
+        "fundamentalDrift": 0.00001,
+        "fundamentalVolatility": 0.001
+    },
+    "traders": {
+        "fundamental": {
+            "count": 30,
+            "kappa1": 0.1390,
+            "kappa2": 0.4562,
+            "interval": 100
+        },
+        "momentumLongTerm": {
+            "count": 30,
+            "decayRate": 0.001,
+            "chi": 0.3017,
+            "psi": 0.09051,
+            "cancelRate": 0.2
+        },
+        "momentumShortTerm": {
+            "count": 30,
+            "decayRate": 0.9,
+            "chi": 0.1273,
+            "psi": 0.03819,
+            "cancelRate": 0.2
+        },
+        "noise": {
+            "count": 30,
+            "eta": 0.3403,
+            "kappa": 0.005,
+            "cancelRate": 0.2
+        },
+        "marketMaker": {
+            "count": 5,
+            "gamma": 1.0,
+            "delta": 0.6624,
+            "maxEdge": 4.0,
+            "inventoryLimit": 4000,
+            "safeInventory": 101,
+            "restPeriod": 12000
+        },
+        "spiking": {
+            "count": 2,
+            "spikeLength": 4,
+            "activationProbability": 0.005,
+            "orderVolume": 100
+        }
+    },
+    "specialEvents": []
+}

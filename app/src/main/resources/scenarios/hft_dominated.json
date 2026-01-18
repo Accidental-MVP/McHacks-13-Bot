@@ -1,0 +1,52 @@
+{
+    "id": "hft_dominated",
+    "name": "HFT-Dominated Market",
+    "description": "Market with aggressive HFT activity and minimal fundamental trading",
+    "seed": 12349,
+    "durationSteps": 36000,
+    "stepIntervalMs": 100,
+    "marketConfig": {
+        "initialFundamentalValue": 1000.0,
+        "tickSize": 0.25,
+        "fundamentalDrift": 0.00001,
+        "fundamentalVolatility": 0.001
+    },
+    "traders": {
+        "fundamental": {
+            "count": 10,
+            "kappa1": 0.1390,
+            "kappa2": 0.4562,
+            "interval": 500
+        },
+        "momentumLongTerm": {
+            "count": 10,
+            "decayRate": 0.001,
+            "chi": 0.3017,
+            "psi": 0.09051,
+            "cancelRate": 0.2
+        },
+        "momentumShortTerm": {
+            "count": 50,
+            "decayRate": 0.95,
+            "chi": 0.15,
+            "psi": 0.045,
+            "cancelRate": 0.35
+        },
+        "noise": {
+            "count": 20,
+            "eta": 0.3403,
+            "kappa": 0.005,
+            "cancelRate": 0.2
+        },
+        "marketMaker": {
+            "count": 8,
+            "gamma": 2.5,
+            "delta": 0.8,
+            "maxEdge": 2.0,
+            "inventoryLimit": 50000,
+            "safeInventory": 300,
+            "restPeriod": 3000
+        }
+    },
+    "specialEvents": []
+}

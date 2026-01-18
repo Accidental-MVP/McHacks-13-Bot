@@ -1,0 +1,59 @@
+{
+    "id": "flash_crash",
+    "name": "Flash Crash",
+    "description": "Replicates the May 6, 2010 Flash Crash with Institutional Sell Algorithm",
+    "seed": 12346,
+    "durationSteps": 54000,
+    "stepIntervalMs": 100,
+    "marketConfig": {
+        "initialFundamentalValue": 1000.0,
+        "tickSize": 0.25,
+        "fundamentalDrift": 0.00001,
+        "fundamentalVolatility": 0.001
+    },
+    "traders": {
+        "fundamental": {
+            "count": 30,
+            "kappa1": 0.1390,
+            "kappa2": 0.4562,
+            "interval": 100
+        },
+        "momentumLongTerm": {
+            "count": 30,
+            "decayRate": 0.001,
+            "chi": 0.3017,
+            "psi": 0.09051,
+            "cancelRate": 0.2
+        },
+        "momentumShortTerm": {
+            "count": 30,
+            "decayRate": 0.9,
+            "chi": 0.1273,
+            "psi": 0.03819,
+            "cancelRate": 0.2
+        },
+        "noise": {
+            "count": 30,
+            "eta": 0.3403,
+            "kappa": 0.005,
+            "cancelRate": 0.2
+        },
+        "marketMaker": {
+            "count": 20,
+            "gamma": 1.0,
+            "delta": 0.6624,
+            "maxEdge": 4.0,
+            "inventoryLimit": 5000,
+            "safeInventory": 101,
+            "restPeriod": 12000
+        },
+        "institutional": {
+            "count": 1,
+            "initialInventory": 220000,
+            "percentageOfVolume": 9,
+            "startTime": "08:30:00",
+            "orderInterval": 12
+        }
+    },
+    "specialEvents": []
+}
